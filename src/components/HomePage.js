@@ -1,6 +1,6 @@
 import React           from 'react';
 import logo            from '../images/tech_impact.png';
-import volunteer       from '../images/volunteer.jpeg';
+import volunteer       from '../images/volunteer-hand.png';
 import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
