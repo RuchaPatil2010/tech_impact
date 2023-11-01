@@ -11,18 +11,22 @@ import { useNavigate, Link } from 'react-router-dom';
 function Login() {
     let navigate = useNavigate();
 
-    const [post, setPost] = useState({
-        username: '',
-        password: ''
-    })
+    const [username, setUsername] = useState('');
+    const [password,setPassword] = useState('');
 
-    const handleInput = (event) =>{
-        setPost({...post, [event.target.name]: event.target.value})
+    // Function to handle username
+    const handleUsername = (event) =>{
+        setUsername(event.target.value);
+    }
+
+    // Function to handle Password
+    const handlePassword = (event) =>{
+        setPassword(event.target.value);
     }
 
     function handleSubmit(event) {
-        event.preventDefault()
-        axios.post('http://localhost:8000/users/login', {post})
+        event.preventDefault();
+        axios.post('http://localhost:8000/users/login', {username:username,password:password})
         .then(response => console.log(response))
         .catch(err => console.log(err))
     }
@@ -42,9 +46,9 @@ function Login() {
             <p className="lead fw-bold mb-0 me-3">Login to your account</p>
           </div>
           <p > Email </p>
-          <MDBInput wrapperClass='mb-4' id='formControlLg' name='username' onChange={handleInput} type='email' size="lg"/>
+          <MDBInput wrapperClass='mb-4' id='formControlLg' name='username' onChange={handleUsername} type='email' size="lg"/>
           <p>Password</p>
-          <MDBInput wrapperClass='mb-4' id='formControlLg' name='password' onChange={handleInput} type='password' size="lg"/>
+          <MDBInput wrapperClass='mb-4' id='formControlLg' name='password' onChange={handlePassword} type='password' size="lg"/>
 
           <div className="d-flex justify-content-between mb-4">
             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
