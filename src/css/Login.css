@@ -3,6 +3,16 @@
     height: 100vh;
   }
   
+  .input-box {
+    width: 500px;
+    align-items: center;
+  }
+
+  .login-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 40px;
+  }
   .img-fluid {
     flex: 1;
     display: flex;

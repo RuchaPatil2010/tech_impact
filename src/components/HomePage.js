@@ -51,7 +51,7 @@ const HomePage = () => {
                   cursor          : 'pointer',
               }}
             >
-              Sign Up to <br></br> Volunteer with us
+              Sign Up
             </button>
 
         </center>
