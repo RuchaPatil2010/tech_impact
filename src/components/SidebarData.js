@@ -17,7 +17,7 @@ export const SidebarData = [
   },
   {
     title: 'Shifts',
-    path: '/shift',
+    path: '/manageShift',
     icon: <BsIcons.BsCalendar3 />,
     cName: 'nav-text'
   },
