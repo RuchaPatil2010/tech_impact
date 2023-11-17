@@ -1,0 +1,215 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+  }
+  
+  .container {
+    margin: auto;
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
+  
+  .jumbotron {
+    text-align: center;
+    background-color: rgb(30, 30, 97);
+    color: white;
+    border-radius: 0;
+    border-bottom: 10px solid black;
+    box-shadow: 0 0 15px 2px black;
+    border-radius: 30px 30px 30px 30px;
+    margin: 1%;
+  }
+  
+  .description {
+    white-space: pre-wrap;
+  }
+  
+  .row {
+    white-space: pre-wrap;
+    height: 80px;
+    border-top: 1px solid white;;
+  }
+  
+  .time-block{
+    text-align: center;
+    border-radius: 15px;
+  }
+  
+  .hour {
+    background-color: #ffffff;
+    color: #000000;
+    border-top: 1px dashed #000000;
+    width: 75px;
+  }
+  
+  textarea{
+    background: transparent;
+    border: none;
+    resize: none;
+    color: #000000;
+    border-left: 1px solid black;
+    padding: 10px;
+    width: 75%;
+  }
+  
+  .clearBtn {
+    border-left: 1px solid black;
+    border-radius: 15px;
+    background-color: #06AED5;
+    color: white;
+  }
+  
+  .saveBtn {
+    border-left: 1px solid black;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #06AED5;
+    color: white;
+  }
+  
+  .saveBtn:hover, .clearBtn:hover {
+    font-size: 20px;
+    transition: all .3s ease-in-out;
+  }
+  
+  .past {
+    background-color: #d3d3d3;
+    color: white;
+  }
+  
+  .present {
+    background-color: #ff6961;
+    color: white;
+  }
+  
+  .future {
+    background-color: #77dd77;
+    color: white;
+  }
+  
+  .PlannerFooter {
+    color: white; 
+    background-color: rgb(30, 30, 97);
+    text-align: center; 
+    padding: 30px;
+    box-shadow: 0 0 15px 2px black;
+    border-radius: 30px 30px 30px 30px;
+    font-family: 'Open Sans', sans-serif;
+    margin: 1%;
+  }
+  
+  .footerli {
+    color: white;
+    font-size: 15px;
+  }
+
+  .open-popup{
+    visibility:visible;
+  }
+
+
+  .popup{
+  width: 400px; background: #fff; border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate (-50%, -50%) scale (0.1);
+  text-align: center;
+  padding: 30px 30px;
+  color: #333;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+  }
+
+  .btn{
+  padding: 10px 60px;
+  background: #fff; border: 0; outline: none;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 500;
+  border-radius: 30px;
+  }
+
+
+.temp {
+background-color: rgba(255, 255, 255, 1);
+height: 90vh;
+width: 70%;
+padding: 1em;
+align-items: center;
+z-index: 100000000;
+overflow-y: scroll;
+border-radius: 12px;
+border-width: 1.5px;
+border-color: black;
+background-color: #fdfdfd;
+color: #9e9e9e;
+}
+
+.add{
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  background-color: #68A4FF;
+  color: white;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: #ffffff;
+  font-weight: bold;
+}
+
+.temp2 {
+  z-index: 1000000;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-width: 1px;
+  box-shadow: #cbcbcb;
+}
+
+.form{
+  position: absolute;
+  width: 70%;
+  padding-top: 20px;
+}
+
+.fullcalendar{
+  z-index: 0;
+}
+.fullcalendar{
+  --fc-button-text-color: #000;
+  --fc-button-bg-color: rgb(195, 195, 195);
+  --fc-button-hover-bg-color: gray;
+  --fc-button-active-bg-color: #3788d8;
+  --fc-button-active-border-color:#3788d8;
+  --fc-button-active-text-color: white;
+  --fc-button-border-color: rgb(195, 195, 195);
+}
+.input{
+  width: 100%;
+  height: 40px;
+  background-color: #efefef;
+  border-radius: 12px;
+  border-width: 1px;
+  border-color: #cbcbcb;
+  color:#9e9e9e;
+}
+
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.cal {
+  z-index: 0;
+}
+
+.modal.open{
+  opacity: 1;
+  z-index: 999;
+}
