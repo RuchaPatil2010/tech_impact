@@ -5,7 +5,6 @@ import Navbar                      from './components/Navbar';
 import WithNav                     from './components/WithNav'; 
 import WithoutNav                  from './components/WithoutNav';
 import Dashboard                   from './components/Dashboard';
-import RegisterTest                from './components/RegisterTest';
 import History                     from './components/VolunteerHistory';
 import React                       from 'react';
 
@@ -20,7 +19,7 @@ function App() {
       <Route element={<WithoutNav />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<RegisterTest />} />
+        <Route path="/register" element={<Register />} />
       </Route>
       <Route element={<WithNav />}>
         <Route path="/dashboard" element={<Dashboard />} />
