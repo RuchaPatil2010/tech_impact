@@ -1,22 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './ManageShift.css';
-import {Calender, Calendar_week} from '../utils/Calender.js';
-import Scheduler from '../utils/Scheduler.jsx';
+import '../css/ManageShift.css';
+import Scheduler from '../utils/Scheduler.js';
 import Navbar from './Navbar';
 
 export const ManageShift = () => {
 
-    let navigate = useNavigate();
-
     return (
-        <div class="maincontent">
+        <div class="maincontent_shift">
             <Navbar/>
-            <div class="calendar">
-            <Scheduler/>
-            </div>
-            <div class="leftPanel">
-                <Calender style={{width:'50%',}}/>
+            
+            <div class="calendar_shift">
+                <Scheduler/>
             </div>
         </div>
     );
