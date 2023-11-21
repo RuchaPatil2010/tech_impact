@@ -6,7 +6,7 @@ import { useState } from 'react';
 import user from '../images/user.png';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import { SidebarData } from './SidebarData';
+import { SidebarData_admin, SidebarData_volunteer } from './SidebarData';
 import '../css/Navbar.css';
 import { IconContext } from 'react-icons';
 import Image from 'react-bootstrap/Image'
@@ -21,6 +21,8 @@ import { useSelector } from 'react-redux';
     const userName = useSelector(state=> state.user.username)
 
     console.log(userName);
+    
+    let role = "admin";
 
     return(
         <>
@@ -42,16 +44,32 @@ import { useSelector } from 'react-redux';
                   <AiIcons.AiOutlineClose />
                 </Link>
               </li>
-              {SidebarData.map((item, index) => {
-                return (
-                  <li className={item.cName}>
-                    <Link to={item.path}>
-                      {item.icon}
-                      <span>{item.title}</span>
-                    </Link>
-                  </li>
-                );
-              })}
+              { SidebarData_admin.map((item, index) => {
+                  if(role=="admin"){
+                    return (
+                      <li className={item.cName}>
+                        <Link to={item.path}>
+                          {item.icon}
+                          <span>{item.title}</span>
+                        </Link>
+                      </li>
+                    );
+                  }
+                 })
+              }
+              { SidebarData_volunteer.map((item, index) => {
+                  if(role!="admin"){
+                    return (
+                      <li className={item.cName}>
+                        <Link to={item.path}>
+                          {item.icon}
+                          <span>{item.title}</span>
+                        </Link>
+                      </li>
+                    );
+                  }
+                 })
+              }
             </ul>
           </nav>
         </IconContext.Provider>
