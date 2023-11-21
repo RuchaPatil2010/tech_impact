@@ -11,6 +11,7 @@ import './Scheduler.css';
 import axios from "axios";
 import { useDispatch } from 'react-redux';
 import { changeUserName } from '../components/action.js';
+import {backend_url} from "./constants";
 
 function Scheduler() {
     const dispatch = useDispatch()
@@ -24,7 +25,7 @@ function Scheduler() {
         setStartTime(event.target.value);
         setEndTime(event.target.value);
         event.preventDefault();
-        axios.post('http://localhost:8000/shifts/create', {
+        axios.post(backend_url+'/shifts/create', {
             title:"temp",
             date: date,
             startTime: start_time,
@@ -46,8 +47,10 @@ function Scheduler() {
 
     let navigate=useNavigate();
     
-    const event = axios.get('http://localhost:8000/shifts/shifts')
-    .then(function (response) {
+    const event = axios(backend_url+'/shifts/shifts',{
+        method:'get',
+        withCredentials: true,
+    }).then(function (response) {
         console.log(response.data);
         // I need this data here ^^
         return response.data;

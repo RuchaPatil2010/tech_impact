@@ -13,6 +13,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './rootReducer.js';
 import { changeUserName } from './action.js'
 import { RedirectFunction } from 'react-router-dom';
+import {backend_url} from "../utils/constants";
 
 function Login() {
     let navigate = useNavigate();
@@ -35,11 +36,11 @@ function Login() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        axios.post('http://localhost:8000/users/login', {username:username,password:password})
+        axios.post(backend_url+'/users/login', {username:username,password:password})
         .then(response => {
           console.log(response);
           dispatch(changeUserName(response.data.name))
-          navigate('/dashboard')
+          navigate('/manageShift')
         })
         .catch(err => {
           console.log(err)
