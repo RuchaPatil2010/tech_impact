@@ -30,6 +30,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/manageShift" element={<ManageShift />} />
           <Route path="/approveUsers" element={<ApproveUsers />} />
           <Route path="/staffList" element={<StaffList />} />

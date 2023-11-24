@@ -130,7 +130,6 @@ export const StaffList = () => {
                     <th class="header">Email</th>
                     <th class="header">Phone</th>
                     <th class="header">City/Town</th>
-                    <th class="header">DOB</th>
                     
                     { data.map((item, index) => {
                         return (
@@ -139,7 +138,6 @@ export const StaffList = () => {
                                 <td class="cell_user"> {item.email} </td>
                                 <td class="cell_user"> {item.contact} </td>
                                 <td class="cell_user"> {item.address} </td>
-                                <td class="cell_user"> {item.dob} </td>
                             </tr>
                         )
                     })}
