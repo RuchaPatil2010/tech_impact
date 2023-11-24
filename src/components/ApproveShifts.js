@@ -45,12 +45,12 @@ export const ApproveShifts = () => {
             <Navbar/>
             <br></br>
 
-            <h2><center>PENDING USER APPROVAL</center></h2>
+            <h2><center>PENDING SHIFT APPROVAL</center></h2>
 
             <div class="table_bg">
                 
                 <table class="rows">
-                    <th></th>
+                    <th class="header"></th>
                     <th class="header">Name</th>
                     <th class="header">Organization</th>
                     <th class="header">Shift Timing</th>

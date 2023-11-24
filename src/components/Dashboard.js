@@ -40,7 +40,7 @@ function Dashboard() {
     return(
         <div>
             <div style={myStyle}>
-                <div class="container">
+                <div class="container_dashboard">
                     <h1>{headerMessage}</h1>
                     <p>{displayMessage1}</p>
                     <div class="clickable-box">

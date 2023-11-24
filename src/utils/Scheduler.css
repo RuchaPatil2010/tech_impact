@@ -61,6 +61,7 @@ box-shadow: 2px 2px 5px gray;
   position: absolute;
   right: 10px;
   top: 10px;
+  padding-bottom: 5px;
   border-radius: 2px;
   border-color: white;
   border-width: 0;

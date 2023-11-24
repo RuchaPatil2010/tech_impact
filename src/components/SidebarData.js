@@ -26,7 +26,7 @@ export const SidebarData_admin = [
     cName: 'nav-text'
   },
   {
-    title: 'Admin Profile',
+    title: 'Profile',
     path: '/profile',
     icon: <CgIcons.CgProfile />,
     cName: 'nav-text'

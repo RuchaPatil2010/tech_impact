@@ -33,6 +33,7 @@ export const Profile = () => {
     return (
         <div class="maincontent_shift">
             <Navbar/>
+            <center><h1> PROFILE </h1></center>
             <div class="profile">
                 <p class="user_details">
                     <div class="profile_attr">Name </div> <br/>

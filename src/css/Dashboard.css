@@ -1,4 +1,4 @@
-.container {
+.container_dashboard {
     flex: 1;
     display: block;
     justify-content: space-around;
@@ -6,11 +6,11 @@
     font-family: 'Trebuchet MS'
 }
 
-.container {
+.container_dashboard {
     text-align: center;
 }
 
-.container h1 {
+.container_dashboard h1 {
     color:darkblue;
     font-weight: bolder;
 }

@@ -5,12 +5,8 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-<<<<<<< HEAD
     "@material-ui/core": "^4.12.4",
-    "@mui/icons-material": "^5.14.16",
-    "@mui/material": "^5.14.17",
     "@mui/styles": "^5.14.18",
-=======
     "@fullcalendar/bootstrap": "^6.1.9",
     "@fullcalendar/bootstrap5": "^6.1.9",
     "@fullcalendar/core": "^6.1.9",
@@ -29,7 +25,6 @@
     "@syncfusion/ej2-react-navigations": "^23.1.43",
     "@syncfusion/ej2-react-schedule": "^23.1.40",
     "@syncfusion/ej2-react-splitbuttons": "^23.1.43",
->>>>>>> 87907c5 (Add calendar page)
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

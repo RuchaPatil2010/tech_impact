@@ -20,12 +20,8 @@ import {
   MDBCheckbox,
   MDBTextArea
 }
-<<<<<<< HEAD
-from 'mdb-react-ui-kit';
-=======
     from 'mdb-react-ui-kit';
     import {backend_url} from "../utils/constants";
->>>>>>> 7a45752 (Make modifications in Calendar)
 
 function Register() {
     let navigate = useNavigate();
