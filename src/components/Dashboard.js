@@ -31,43 +31,24 @@ function Dashboard() {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat'
         };
-        const style2={
-            zIndex: 2000
-        }
         console.log(Navbar);
-        const displayMessage = "Welcome to Tech Impact, where we believe in harnessing the power of technology for positive change. \
-        Explore Volunteer Connection, our online portal empowering nonprofits and volunteers to create meaningful impact together. \
-        Join us in building a better world—one volunteer shift at a time."
+        const headerMessage = "Welcome to Tech Impact"
+        const displayMessage1 = "We believe in harnessing the power of technology for positive change"
+        const displayMessage2 = "Explore Volunteer Connection, our online portal to create meaningful impact together."
+        const displayMessage3 = "Join us in building a better world—one volunteer shift at a time."
+        
     return(
         <div>
-        <div style={style2}>
-        <Navbar />
+            <div style={myStyle}>
+                <div class="container_dashboard">
+                    <h1>{headerMessage}</h1>
+                    <p>{displayMessage1}</p>
+                    <div class="clickable-box">
+                        <p>{displayMessage2} <br/> {displayMessage3} </p>
+                    </div>
+                </div>
+            </div>
         </div>
-    <div style={myStyle}>
-        
-        <div class="container">
-        <div class="clickable-box">
-            <p>{displayMessage}</p>
-        </div>
-        {/* <div class="clickable-box">
-            <Link to="/shift">
-                <img src={calendar} alt="calendar" class="icon" />
-                <p class="text">Shifts</p>
-            </Link>
-            <Link to="/profile">
-                <img src={user} alt="profile" class="icon" />
-                <p class="text">Profile</p>
-            </Link>
-        </div>
-        <div class="clickable-box">
-            <Link to="/login">
-                <img src={logout} alt="logout" class="icon" />
-                <p class="text">Logout</p>
-            </Link>
-        </div> */}
-        </div>
-    </div>
-    </div>
      
     )
 }

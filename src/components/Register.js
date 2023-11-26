@@ -7,21 +7,21 @@ import axios from "axios";
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-
+//import '../css/Register.css';
 import {
-    MDBBtn,
-    MDBContainer,
-    MDBRow,
-    MDBCol,
-    MDBCard,
-    MDBCardBody,
-    MDBCardImage,
-    MDBInput,
-    MDBIcon,
-    MDBCheckbox,
-    MDBTextArea
+  MDBBtn,
+  MDBContainer,
+  MDBCard,
+  MDBCardBody,
+  MDBInput,
+  MDBIcon,
+  MDBRow,
+  MDBCol,
+  MDBCheckbox,
+  MDBTextArea
 }
     from 'mdb-react-ui-kit';
+    import {backend_url} from "../utils/constants";
 
 function Register() {
     let navigate = useNavigate();
@@ -56,16 +56,21 @@ function Register() {
         setRepassword(event.target.value);
     }
 
+    // const handleContact = (event) => {
+    //     setContact(event.target.value);
+    // }
+
     const handleContact = (value) => {
         setContact(value);
     }
+
     const handleAddress = (event) => {
         setAddress(event.target.value);
     }
 
     function handleSubmit(event) {
         event.preventDefault();
-        axios.post('http://localhost:8000/users/register', {
+        axios.post(backend_url+'/users/register', {
             username: username,
             password: pass,
             name: name,
@@ -77,69 +82,67 @@ function Register() {
             .then(response => navigate('/login'))
             .catch(err => console.log(err))
     }
+  return (
+    <MDBContainer fluid className='my-5'>
 
-    return (
-        <MDBContainer fluid>
-            <MDBCard className='text-black m-5' style={{ borderRadius: '25px' }}>
-                <MDBCardBody>
-                    <MDBRow>
-                        <MDBCol md='10' lg='6' className='order-1 order-lg-2 d-flex align-items-center'>
-                            <MDBCardImage src={registerImage} fluid />
-                        </MDBCol>
+      <MDBRow className='g-0 align-items-center'>
+        <MDBCol col='6'>
 
-                        <MDBCol md='10' lg='6' className='order-2 order-lg-1 d-flex flex-column align-items-center'>
+          <MDBCard className='my-5 cascading-right' style={{background: 'hsla(0, 0%, 100%, 0.55)',  backdropFilter: 'blur(30px)'}}>
+            <MDBCardBody className='p-5 shadow-5 text-left'>
 
-                            <h4 classNAme="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"><b>Sign up to become a Volunteer with us!</b></h4>
+              <h3 className="fw-bold mb-5 text-center">Sign up to become a Volunteer with us!</h3>
 
-                            <MDBRow>
-                
-                                    <MDBInput wrapperClass='mb-4' label='Name' onChange={handleName} size='lg' id='form1' type='text' />
-                      
+              <MDBRow>
+                <MDBCol col='6'>
+                  <MDBInput wrapperClass='mb-4' label='Name' style={{"text-align":"left"}} placeholder='Enter your name here' onChange={handleName} id='form1' type='text'/>
+                </MDBCol>
 
-                   
-                                    {/* <MDBInput wrapperClass='mb-4' label='Phone Number' value={contact} onChange={handleContact} size='lg' id='form3' type='number'/> */}
-                                    <PhoneInput className="number" country={"us"} value={contact} onChange={handleContact} id='form2' type='tel' />
-                                    Phone Number
-                        
-                            </MDBRow>
+                <MDBCol col='6'>
+                  {/* <MDBInput wrapperClass='mb-4' label='Phone' onChange={handleContact} id='form2' type='tel'/> */}
+                  <PhoneInput className="number" country={"us"} value={contact} onChange={handleContact} id='form2' type='tel' />
+                    Phone Number
+                </MDBCol>
+              </MDBRow>
 
-                            <MDBRow>
-        
-                                    <MDBTextArea label='Address' onChange={handleAddress} id='form2' rows={4} />
-           
-                        
-                                    <MDBInput wrapperClass='mb-4' label='Email' onChange={handleEmail} size='lg' id='form4' type='email' />
-                      
-                            </MDBRow>
+              <MDBTextArea wrapperClass='mb-4' placeholder="Enter your complete address here" label='Address' onChange={handleAddress} id='form4' rows={3} type='text'/>
 
-                            <MDBRow>
-                            
-                                    <MDBInput wrapperClass='mb-4' label='Username' onChange={handleUsername} size='lg' id='form5' type='text' />
-               
-                               
-                            </MDBRow>
+              <MDBRow>
+                <MDBCol col='6'>
+                    <MDBInput wrapperClass='mb-4' placeholder="Enter your email ID here" label='Email' onChange={handleEmail} id='form3' type='email'/>
+                </MDBCol>
 
-                            <MDBRow>
-                                <MDBCol md='6'>
-                                <   MDBInput wrapperClass='mb-4' label='Re Enter Password' onChange={handleRepassword} size='lg' id='form7' type='password' />
-                                </MDBCol>
-                                <MDBCol md='6'>
-                                    <MDBInput wrapperClass='mb-4' label='Password' onChange={handlePassword} size='lg' id='form6' type='password' />
-                                </MDBCol>
-                                
-                            </MDBRow>
+                <MDBCol col='6'>
+                    <MDBInput wrapperClass='mb-4' placeholder="Choose your username (Login ID)" label='Username' onChange={handleUsername} id='form5' type='text'/>
+                </MDBCol>
+              </MDBRow>
 
-            
-                                <Button wrapperClass='mb-4' onClick={handleSubmit} size='lg'>Register</Button>
-                            
+              <MDBRow>
+                <MDBCol col='6'>
+                    <MDBInput wrapperClass='mb-4' placeholder='Choose a strong password' label='Password' onChange={handlePassword} id='form5' type='password'/>
+                </MDBCol>
 
-                            <p className="small fw-bold mt-2 pt-1 mb-2">Already have an account? <Link to="/login">Login</Link></p>
-                        </MDBCol>
-                    </MDBRow>
-                </MDBCardBody>
-            </MDBCard>
-        </MDBContainer>
-    );
+                <MDBCol col='6'>
+                    <MDBInput wrapperClass='mb-4' placeholder='Re-enter the password' label='Re-enter Password' onChange={handleRepassword} id='form6' type='password'/>
+                </MDBCol>
+              </MDBRow>
+            </MDBCardBody>
+            <Button wrapperClass='w-100 mb-4' onClick={handleSubmit} size='lg'>Sign Up</Button>
+            <div className="text-center">
+            <p className="small fw-bold mt-2 pt-1 mb-2">Already have an account? <Link to="/login">Login</Link></p>
+            </div>
+          </MDBCard>
+        </MDBCol>
+
+        <MDBCol col='6'>
+          <img src={registerImage} class="w-100 rounded-4 shadow-4"
+            alt="" fluid/>
+        </MDBCol>
+
+      </MDBRow>
+
+    </MDBContainer>
+  );
 }
 
 export default Register;
