@@ -41,20 +41,17 @@ const StyledTableCell = withStyles((theme) => ({
 function History() {
 
     const classes = useStyles();
-    const [shift, setShift] = useState([{
-        "title": "Tech Impact",
-        "date": "2023-11-12",
-        "startTime": "8:00 AM",
-        "endTime": "12:00 PM"
-    }]);
+    const [shift, setShift] = useState([]);
 
     const getShiftData = async () => {
         try {
         const data = await axios.get(
-            "http://localhost:8000/shifts/shifts"
+            "http://localhost:8000/shifts/shifts", {
+            params: {username:"admin"}
+        }
         );
         console.log(data);
-        //setProduct(data.data);
+        setShift(data.data);
         } catch (e) {
         console.log(e);
         }

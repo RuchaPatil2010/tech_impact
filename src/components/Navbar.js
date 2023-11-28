@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import registerImage from '../images/register-volunteer.jpg';
+import techImpact from '../images/tech_impact.png';
 import axios from "axios";
 import { useState } from 'react';
 import user from '../images/user.png';
@@ -30,11 +31,13 @@ import { useSelector } from 'react-redux';
           <div className='navbar'>
           <div class='user-profile'>
             <img src={user} />
-            &ensp; <b>{userName}</b>
+            &ensp; 
+            <Link to="/profile" style={{ textDecoration: 'none', color: 'white'}}><b>{userName}</b></Link>
           </div>
             <Link to='#' className='menu-bars'>
               <FaIcons.FaBars onClick={showSidebar} />
             </Link>
+            <img src={techImpact} style={{borderRadius: '10px', marginLeft: '30px'}} />
           </div>
           <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
             
@@ -43,6 +46,9 @@ import { useSelector } from 'react-redux';
                 <Link to='#' className='menu-bars'>
                   <AiIcons.AiOutlineClose />
                 </Link>
+              </li>
+              <li>
+                <img src={techImpact} style={{borderRadius: '10px'}} />
               </li>
               { SidebarData_admin.map((item, index) => {
                   if(role=="admin"){
