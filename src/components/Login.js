@@ -12,7 +12,7 @@ import {backend_url} from "../utils/constants";
 
 import { Provider } from 'react-redux';
 import rootReducer from './rootReducer.js';
-import { changeUserName } from './action.js'
+import { changeUser } from './action.js'
 import { RedirectFunction } from 'react-router-dom';
 
 function Login() {
@@ -39,7 +39,7 @@ function Login() {
         axios.post(backend_url+'/users/login', {username:username,password:password})
         .then(response => {
           console.log(response);
-          dispatch(changeUserName(response.data.name))
+          dispatch(changeUser(response.data))
           navigate('/dashboard')
         })
         .catch(err => {

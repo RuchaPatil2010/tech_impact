@@ -19,11 +19,11 @@ import { useSelector } from 'react-redux';
 
     const showSidebar = () => setSidebar(!sidebar);
 
-    const userName = useSelector(state=> state.user.username)
+    const user = useSelector(state=> state)
 
-    console.log(userName);
+    console.log(user.username);
     
-    let role = "admin";
+    let role = "volunteer";
 
     return(
         <>
@@ -32,7 +32,7 @@ import { useSelector } from 'react-redux';
           <div class='user-profile'>
             <img src={user} />
             &ensp; 
-            <Link to="/profile" style={{ textDecoration: 'none', color: 'white'}}><b>{userName}</b></Link>
+            <Link to="/profile" style={{ textDecoration: 'none', color: 'white'}}><b>{user.username}</b></Link>
           </div>
             <Link to='#' className='menu-bars'>
               <FaIcons.FaBars onClick={showSidebar} />

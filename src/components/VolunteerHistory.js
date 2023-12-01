@@ -13,6 +13,28 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import '../css/History.css';
 
+function convertTo12HourFormat(time) {
+    // Ensure the input is a valid 4-digit number
+    if (isNaN(time) || time < 0 || time >= 2400 || time % 100 >= 60) {
+        return "Invalid time";
+    }
+
+    // Extract hours and minutes
+    const hours = Math.floor(time / 100);
+    const minutes = time % 100;
+
+    // Determine AM or PM
+    const period = hours < 12 ? "AM" : "PM";
+
+    // Convert to 12-hour format
+    const hours12 = hours % 12 || 12;
+
+    // Format the time
+    const formattedTime = `${hours12}:${String(minutes).padStart(2, '0')} ${period}`;
+
+    return formattedTime;
+}
+
 const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: theme.palette.common.black,
@@ -43,6 +65,8 @@ function History() {
     const classes = useStyles();
     const [shift, setShift] = useState([]);
 
+    const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'};
+
     const getShiftData = async () => {
         try {
         const data = await axios.get(
@@ -52,6 +76,7 @@ function History() {
         );
         console.log(data);
         setShift(data.data);
+    
         } catch (e) {
         console.log(e);
         }
@@ -78,19 +103,23 @@ function History() {
                 <TableBody>
                     {shift
                     .map((item) => {
+                        const dateDisplay = new Date(item.date)
                         return (
+                  
                         <StyledTableRow key={item.id}>
                             <StyledTableCell component="th" scope="row">
                             {item.title}
                             </StyledTableCell>
                             <StyledTableCell>
-                            {item.date}
+                                {/* {console.log(new Date(item.date))} */}
+                                {/* {console.log(item.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }))} */}
+                            {new Date(item.date).toLocaleString('en-us', options)} 
                             </StyledTableCell>
                             <StyledTableCell>
-                            {item.startTime}
+                            {convertTo12HourFormat(item.startTime)}
                             </StyledTableCell>
                             <StyledTableCell>
-                            {item.endTime}
+                            {convertTo12HourFormat(item.endTime)}
                             </StyledTableCell>
                         </StyledTableRow>
                         );
