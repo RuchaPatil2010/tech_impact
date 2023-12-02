@@ -43,9 +43,7 @@ function Dashboard() {
                 <div class="container_dashboard">
                     <h1>{headerMessage}</h1>
                     <p>{displayMessage1}</p>
-                    <div class="clickable-box">
-                        <p>{displayMessage2} <br/> {displayMessage3} </p>
-                    </div>
+                    <p>{displayMessage2} <br/> {displayMessage3} </p>
                 </div>
             </div>
         </div>

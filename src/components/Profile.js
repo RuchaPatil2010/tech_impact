@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/Profile.css';
 import Navbar from './Navbar';
+import { useSelector } from 'react-redux';
 
 export const Profile = () => {
 
