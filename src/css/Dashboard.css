@@ -1,0 +1,43 @@
+.container_dashboard {
+    flex: 1;
+    display: block;
+    justify-content: space-around;
+    padding: 100px 30px 50px 30px;
+    font-family: 'Trebuchet MS'
+}
+
+.container_dashboard {
+    text-align: center;
+}
+
+.container_dashboard h1 {
+    color:darkblue;
+    font-weight: bolder;
+}
+
+.clickable-box {
+    display: block;
+    padding: 10px 20px 0px 20px;
+    font-size: larger;
+    height: 80px;
+    width: 950px;
+    margin-left: 155px;
+    text-align: center;
+}
+
+.clickable-box p {
+    text-decoration: none;
+}
+
+.icon {
+    display: block;
+    width: 50px; /* Adjust the width of the icon */
+    height: 50px; /* Adjust the height of the icon */
+    /* Additional styling for the icon */
+}
+
+.text {
+    font-weight: bold;
+    text-align: center;
+    /* Additional styling for the text */
+}

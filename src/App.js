@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import Dashboard                   from './components/Dashboard';
+import HomePage                    from './components/HomePage';
+import Login                       from './components/Login';
+import Register                    from './components/Register';
+import Navbar                      from './components/Navbar';
+import WithNav                     from './components/WithNav'; 
+import WithoutNav                  from './components/WithoutNav';
+import History                     from './components/VolunteerHistory';
+import ManageShift                 from './components/ManageShift';
+import ApproveUsers                from './components/ApproveUsers';
+import StaffList                   from './components/StaffList';
+import React                       from 'react';
+
+import { Route, 
+         BrowserRouter as Router, 
+         Routes}                   from 'react-router-dom';
+import ApproveShifts from './components/ApproveShifts';
+import Profile from './components/Profile';
+import UpdateProfile from './components/UpdateProfile';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+      <Route element={<WithNav />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/history" element={<History />} />
+      </Route>
+        <Route element={<WithoutNav />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/manageShift" element={<ManageShift />} />
+          <Route path="/approveUsers" element={<ApproveUsers />} />
+          <Route path="/staffList" element={<StaffList />} />
+          <Route path="/approveShifts" element={<ApproveShifts />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/updateProfile" element={<UpdateProfile />} />
+        </Route>        
+      </Routes>
+    </Router>
   );
 }
 
