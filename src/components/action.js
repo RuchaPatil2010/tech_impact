@@ -4,12 +4,4 @@ export const changeUser = (user) => {
      type: "CHANGE_USER",
      payload: user
     }
-   }
-
-//    export const changeName = (name) => {
-//     console.log(name);
-//     return {
-//      type: "CHANGE_NAME",
-//      payload: name
-//     }
-//    }
+}

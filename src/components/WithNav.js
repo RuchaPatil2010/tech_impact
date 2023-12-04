@@ -1,11 +1,11 @@
-import { Outlet } from 'react-router';
-import Navbar     from './Navbar';
+import {Outlet} from 'react-router';
+import Navbar from './Navbar';
 
 export default () => {
-  return (
-    <>
-      <Navbar />
-      <Outlet />
-    </>
-  );
+    return (
+        <>
+            <Navbar/>
+            <Outlet/>
+        </>
+    );
 };
