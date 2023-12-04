@@ -12,7 +12,6 @@ function Dashboard() {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
     };
-    console.log(Navbar);
     const headerMessage = "Welcome to Tech Impact"
     const displayMessage1 = "We believe in harnessing the power of technology for positive change"
     const displayMessage2 = "Explore Volunteer Connection, our online portal to create meaningful impact together."

@@ -21,7 +21,6 @@ export const ApproveUsers = () => {
     const [approve, setApprove] = useState([]);
 
     const add_id = (id) => {
-        console.log(id);
         const x = approve;
         x.push(id);
         setApprove(x);

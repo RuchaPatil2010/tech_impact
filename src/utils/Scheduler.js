@@ -34,7 +34,7 @@ function Scheduler() {
     useEffect(() => {
         axios.get(backend_url + '/shifts/shifts', {
             params: {username: username},
-        }).then((res)=> {setData(res.data);console.log(res.data);}).catch(err=>console.log(error));
+        }).then((res)=> {setData(res.data)}).catch(err=>console.log(error));
     }, [error,username]);
 
     const handleCreateEvent = (info) => {
