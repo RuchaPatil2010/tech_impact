@@ -1,26 +1,24 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import '../css/ApproveUsers.css';
 import Navbar from './Navbar';
 import {backend_url} from "../utils/constants";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 export const ApproveUsers = () => {
 
-    const [doesChange, setDoesChange] = useState(0);
-    const [data,setData] = useState();
-    useEffect(()=>{axios(backend_url+'/users/pending_approval',{
-        method:'get',
-        params: {username:"admin"},
-    }).then(function (response) {
-        console.log(response.data);
-        setData(response.data);
-    })
-    .catch(function (error) {
-        console.log(error);
-    });},[])
+    let navigate = useNavigate();
+    const [data, setData] = useState();
+    const user = useSelector(state=>state.user.user);
+    const username = user.username;
 
-    const [approve,setApprove] = useState([]);
+    useEffect(() => {
+        axios.get(backend_url + '/users/pending_approval', {params: {username: username}})
+            .then(res=>setData(res.data)).catch(err=>console.log(err));
+    }, [])
+
+    const [approve, setApprove] = useState([]);
 
     const add_id = (id) => {
         console.log(id);
@@ -29,66 +27,55 @@ export const ApproveUsers = () => {
         setApprove(x);
     }
 
-    
 
     const approveFunction = () => {
-        axios(backend_url+'/users/approve_users',{
-            method:'get',
-            params: {username:"admin", usernames:approve},
-        }).then(function (response) {
-            console.log(response);
-            setDoesChange(doesChange + 1);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        axios.get(backend_url + '/users/approve_users', {
+            params: {username: username, usernames: approve},
+        }).then(()=>navigate('/reloader',{state:{route:'/approveUsers'}})).catch((error)=> console.log(error));
     }
 
     const denyFunction = () => {
-        axios(backend_url+'/users/deny_users',{
-            method:'get',
-            params: {usernames:approve},
-        }).then(function (response) {
-            console.log(response);
-            setDoesChange(doesChange + 1);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        axios.get(backend_url + '/users/deny_users', {
+            params: {username: username, usernames: approve},
+        }).then(()=>navigate('/reloader',{state:{route:'/approveUsers'}})).catch((error)=> console.log(error));
     }
 
 
     return (
-        <div class="maincontent">
+        <div className="maincontent">
             <Navbar/>
             <br></br>
 
-            <h2><center>PENDING USER APPROVAL</center></h2>
+            <h2>
+                <center>PENDING USER APPROVAL</center>
+            </h2>
 
-            <div class="table_bg">
-                <table class="rows">
-                    <th class="header"></th>
-                    <th class="header">Name</th>
-                    <th class="header">Email</th>
-                    <th class="header">Phone</th>
-                    <th class="header">City/Town</th>
-                    
-                    { data?.map((item, index) => {
+            <div className="table_bg">
+                <table className="rows">
+                    <th className="header"></th>
+                    <th className="header">Name</th>
+                    <th className="header">Email</th>
+                    <th className="header">Phone</th>
+                    <th className="header">City/Town</th>
+
+                    {data?.map((item, index) => {
                         return (
-                            <tr class="row_user">
-                                <td class="cell_user"><input id="temp" type="checkbox" onClick={() => {add_id(item.username)}}/><label id={item.username}></label></td>
-                                <td class="cell_user"> {item.name}</td>
-                                <td class="cell_user"> {item.email} </td>
-                                <td class="cell_user"> {item.contact} </td>
-                                <td class="cell_user"> {item.address} </td>
+                            <tr className="row_user">
+                                <td className="cell_user"><input id="temp" type="checkbox" onClick={() => {
+                                    add_id(item.username)
+                                }}/><label id={item.username}></label></td>
+                                <td className="cell_user"> {item.name}</td>
+                                <td className="cell_user"> {item.email} </td>
+                                <td className="cell_user"> {item.contact} </td>
+                                <td className="cell_user"> {item.address} </td>
                             </tr>
                         )
                     })}
                 </table>
-                </div>
-                
-                <button class="approve" onClick={approveFunction}>APPROVE</button>
-                <button class="reject" onClick={denyFunction}>REJECT</button>
+            </div>
+
+            <button className="approve" onClick={approveFunction}>APPROVE</button>
+            <button className="reject" onClick={denyFunction}>REJECT</button>
         </div>
     );
 };
