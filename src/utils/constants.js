@@ -1,1 +1,1 @@
-export const backend_url = "https://3.143.214.92"
+export const backend_url = "https://18.223.23.167.nip.io"
