@@ -14,6 +14,7 @@ export const UpdateProfile = () => {
     const [name,setName] = useState(user.name);
     const [email,setEmail] = useState(user.email);
     const [contact,setContact] = useState(user.contact);
+    const [password,setPassword] = useState('');
 
     const onContactChange = (e)=>{
         setContact(e.target.value);
@@ -24,14 +25,23 @@ export const UpdateProfile = () => {
     const onNameChange = (e)=>{
         setName(e.target.value);
     }
+    const onPasswordChange = (e)=>{
+        setPassword(e.target.value);
+    }
 
     const onUpdate = ()=>{
         axios.post(backend_url+'/users/edit',{
             username:user.username,
             name:name,
             email:email,
-            contact:contact
-        }).then(()=>navigate('/reloader',{state:{route:'/profile'}})).catch(err=>console.log(err));
+            contact:contact,
+            password:password
+        }).then(()=>{
+            user.name = name;
+            user.email = email;
+            user.contact = contact;
+            navigate('/reloader',{state:{route:'/profile'}})
+        }).catch(err=>console.log(err));
     };
 
     return (
@@ -52,6 +62,9 @@ export const UpdateProfile = () => {
                     <div class="profile_attr">Phone</div>
                     <br/>
                     <input id="contact" class="profile_update" onChange={onContactChange} defaultValue={contact}/><br/><br/><br/>
+                    <div class="profile_attr">Password</div>
+                    <br/>
+                    <input id="password" className="profile_update" onChange={onPasswordChange}/><br/><br/><br/>
                     <div class="profile_attr">Role</div>
                     <br/>
                     <input id="role" class="profile_update" value={user.role} disabled/><br/><br/><br/><br/>

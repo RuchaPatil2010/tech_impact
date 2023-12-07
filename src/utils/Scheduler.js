@@ -46,7 +46,7 @@ function Scheduler() {
                 location: info.location,
                 req_skills: info.req_skills,
                 max_volunteers: info.max_volunteers,
-                description: description,
+                description: info.description,
             }, {params: {username: username}})
             .then(() => navigate('/reloader',{state:{route:'/manageShift'}})).catch(err => {
             console.log(err);

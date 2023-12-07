@@ -15,6 +15,7 @@ import ApproveShifts from './components/ApproveShifts';
 import Profile from './components/Profile';
 import UpdateProfile from './components/UpdateProfile';
 import Reloader from './components/Reloader';
+import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
     return (
@@ -36,6 +37,7 @@ function App() {
                     <Route path="/profile" element={<Profile/>}/>
                     <Route path="/updateProfile" element={<UpdateProfile/>}/>
                     <Route path="/reloader" element={<Reloader/>}/>
+                    <Route path="/forgotpassword" element={<ForgotPassword/>}/>
                 </Route>
             </Routes>
         </Router>
