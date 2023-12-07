@@ -39,6 +39,10 @@ function Login() {
             })
     }
 
+    const handleForgotPassword = () => {
+        navigate('/forgotpassword');
+    }
+
     return (
         <MDBContainer fluid className="p-3 my-5 h-custom">
 
@@ -69,7 +73,7 @@ function Login() {
                         </div>
                         <div className="d-flex justify-content-between mb-4">
                             {/* <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' /> */}
-                            <a href="#">Forgot password?</a>
+                            <a href="#" onClick={handleForgotPassword}>Forgot password?</a>
                         </div>
                         <div className='text-center text-md-start mt-4 pt-2'>
                             <Button className="mb-0 px-5" onClick={handleSubmit}>Login</Button>
