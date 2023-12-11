@@ -69,7 +69,7 @@ function Future() {
     const options = {weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'};
 
     useEffect(() => {
-        axios.get(backend_url+'/shifts/history',{params:{username:username}}).then(res=>setShift(res.data))
+        axios.get(backend_url+'/shifts/upcoming',{params:{username:username}}).then(res=>setShift(res.data))
             .catch(err=>console.log(err));
     }, []);
 
