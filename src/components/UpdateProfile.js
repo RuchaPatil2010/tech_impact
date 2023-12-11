@@ -50,22 +50,22 @@ export const UpdateProfile = () => {
             <center><h1> PROFILE </h1></center>
             <div class="profile">
                 <p class="user_update_details">
-                    <div class="profile_attr">Name</div>
+                    <div class="profile_attr"><b>Name</b></div>
                     <br/>
                     <input id="name" class="profile_update" onChange={onNameChange} defaultValue={name}/><br/><br/><br/>
-                    <div class="profile_attr">Username</div>
+                    <div class="profile_attr"><b>Username</b></div>
                     <br/>
                     <input id="username" class="profile_update" value={user.username} disabled/><br/><br/><br/>
-                    <div class="profile_attr">email</div>
+                    <div class="profile_attr"><b>Email</b></div>
                     <br/>
                     <input id="email" class="profile_update" onChange={onEmailChange} defaultValue={email}/><br/><br/><br/>
-                    <div class="profile_attr">Phone</div>
+                    <div class="profile_attr"><b>Phone</b></div>
                     <br/>
                     <input id="contact" class="profile_update" onChange={onContactChange} defaultValue={contact}/><br/><br/><br/>
-                    <div class="profile_attr">Password</div>
+                    <div class="profile_attr"><b>Password</b></div>
                     <br/>
-                    <input id="password" className="profile_update" onChange={onPasswordChange}/><br/><br/><br/>
-                    <div class="profile_attr">Role</div>
+                    <input id="password" className="profile_update" onChange={onPasswordChange} type='password'/><br/><br/><br/>
+                    <div class="profile_attr"><b>Role</b></div>
                     <br/>
                     <input id="role" class="profile_update" value={user.role} disabled/><br/><br/><br/><br/>
                     <button id="save" class="save" onClick={onUpdate}>SAVE
