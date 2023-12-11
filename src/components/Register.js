@@ -20,6 +20,8 @@ function Register() {
     const [pass, setPassword] = useState('');
     const [address, setAddress] = useState('');
     const [repassword, setRepassword] = useState('');
+    const [error, setError] = useState();
+    const errorMessage = <p style={{color: 'red'}}>The username already exists! Please try again with another username</p>
 
     // Function to handle username
     const handleUsername = (event) => {
@@ -61,7 +63,10 @@ function Register() {
             contact: contact,
             address: address,
             role: 'volunteer'
-        }).then(response => navigate('/login')).catch(err => console.log(err))
+        }).then(response => navigate('/login')).catch(err => {
+            setError(err.message)
+            console.log(err)
+        }) 
     }
 
     return (
@@ -118,8 +123,15 @@ function Register() {
                                               type='password'/>
                                 </MDBCol>
                             </MDBRow>
+                            <MDBRow>
+                                <div className="d-flex justify-content-between mb-4">
+                                    {error ? errorMessage : null}
+                                 </div>
+                            </MDBRow>
                         </MDBCardBody>
-                        <Button wrapperClass='w-100 mb-4' onClick={handleSubmit} size='lg'>Sign Up</Button>
+                        <div class="signup-button" style={{textAlign: 'center'}}>
+                            <Button style={{width: '200px'}} onClick={handleSubmit} size='lg'>Sign Up</Button>
+                        </div>
                         <div className="text-center">
                             <p className="small fw-bold mt-2 pt-1 mb-2">Already have an account? <Link
                                 to="/login">Login</Link></p>

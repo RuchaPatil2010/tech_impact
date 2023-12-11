@@ -4,6 +4,7 @@ import * as BiIcons from 'react-icons/bi';
 import * as CgIcons from 'react-icons/cg';
 import * as BsIcons from 'react-icons/bs';
 import {FaPeopleGroup} from "react-icons/fa6";
+import { TbPlayerTrackNextFilled } from "react-icons/tb";
 import {MdFormatListBulletedAdd, MdHistory} from "react-icons/md";
 import {LuStamp} from "react-icons/lu";
 
@@ -73,6 +74,12 @@ export const SidebarData_volunteer = [
         cName: 'nav-text'
     },
     {
+        title: 'Upcoming Shifts',
+        path: '/upcoming',
+        icon: <TbPlayerTrackNextFilled />,
+        cName: 'nav-text'
+    },
+    {
         title: 'History',
         path: '/history',
         icon: <MdHistory/>,
@@ -83,5 +90,5 @@ export const SidebarData_volunteer = [
         path: '/login',
         icon: <BiIcons.BiLogOut/>,
         cName: 'nav-text'
-    },
+    }
 ];

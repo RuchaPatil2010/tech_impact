@@ -2,10 +2,14 @@ import {useState} from "react";
 import axios from "axios";
 import {backend_url} from "../utils/constants";
 import {useNavigate} from "react-router-dom";
+import '../css/mix.css';
 
 const ForgotPassword = () => {
-    const [username,setUsername] = useState('');
-    const [code,setCode] = useState(0);
+    const [username, setUsername] = useState('');
+    const [code, setCode] = useState(0);
+    const [codeSent, setCodeSent] = useState();
+    const sentMessage = <p style={{color: 'green'}}>The code has been sent to your registered email address</p>
+
     let navigate = useNavigate();
 
     const handleUsername = (e)=>{
@@ -13,6 +17,7 @@ const ForgotPassword = () => {
     }
     const handleCodeRequest = ()=>{
         axios.get(backend_url+'/users/request_code',{params:{username:username}});
+        setCodeSent('Code Sent')
     }
 
     const handleCode = (e)=>{
@@ -25,16 +30,33 @@ const ForgotPassword = () => {
         });
     }
 
-    return (<div>
-        <h4>Kindly enter your username here and you will get an email with a code. Please enter the code here and click submit to get a new password.</h4>
-        <input name="username" onChange={handleUsername} placeholder='username'/>
-        <button onClick={handleCodeRequest}>Continue</button>
-        <div>
-            <p>Enter code here</p>
-            <input name="code" onChange={handleCode} placeholder="Enter code here"/>
-            <button type='submit' onClick={handleSubmit}>SUBMIT</button>
-        </div>
-    </div>)
+    return (
+        <>
+        <section>
+            <div className="form_data">
+                <div className="form_heading">
+                    <h1>Reset Password</h1>
+                </div>
+                <form>
+                    <div className="form_input">
+                    <p>Kindly enter your username here and click "Generate Code" and you will get an email with a code. Please enter the code here and click submit to get a new password.</p>
+                        <label htmlFor="username">Username</label>
+                        <input type="text" onChange={handleUsername} name="username" id="username" placeholder='Enter your Username' />
+                        {codeSent ? sentMessage : null}
+                        <button className='code-btn' onClick={handleCodeRequest}>Generate Code</button>
+                        <br />
+                        <br />
+                        <br />
+                        <label htmlFor="code">Code</label>
+                        <input type="text" onChange={handleCode} name="code" id="code" placeholder='Enter the code here' />
+                    </div>
+
+                    <button className='btn' onClick={handleSubmit}>Submit</button>
+                </form>
+            </div>
+        </section>
+    </>
+    )
 }
 
 export default ForgotPassword;

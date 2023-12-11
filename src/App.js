@@ -8,6 +8,7 @@ import History from './components/VolunteerHistory';
 import ManageShift from './components/ManageShift';
 import ApproveUsers from './components/ApproveUsers';
 import StaffList from './components/StaffList';
+import Future from './components/VolunteerFuture';
 import React from 'react';
 
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
@@ -17,6 +18,7 @@ import UpdateProfile from './components/UpdateProfile';
 import Reloader from './components/Reloader';
 import ForgotPassword from "./components/ForgotPassword";
 
+
 function App() {
     return (
         <Router>
@@ -24,6 +26,7 @@ function App() {
                 <Route element={<WithNav/>}>
                     <Route path="/dashboard" element={<Dashboard/>}/>
                     <Route path="/history" element={<History/>}/>
+                    <Route path="/upcoming" element={<Future/>}/>
                 </Route>
                 <Route element={<WithoutNav/>}>
                     <Route path="/" element={<HomePage/>}/>
