@@ -1,5 +1,13 @@
 # Tech Impact
 
+## This repository is the frontend for a shift management application.
+
+### The backend is at https://github.com/CrazyDragonX007/se-backend
+
+### Contact the owner of the backend repository for credentials if you wish to test the application.
+
+### The site is currently hosted at https://tech-impact.netlify.app/
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
